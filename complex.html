@@ -11,35 +11,42 @@
 <body class="h-screen flex items-center justify-center">
     <div class="bg-black w-[700px] border border-black rounded-md">
 
-        <div id="equation"
-            class="screen bg-gray-700 p-2 mt-2 mx-2 h-[80px] text-white rounded-t-md font-semibold text-lg">
-
-        </div>
-        <div id="display"
-            class="screen bg-gray-700 p-2 mb-2 mx-2 h-[80px] flex justify-end rounded-b-md text-white font-semibold text-lg">
-
+        <div class="my-4 mx-2">
+            <div class="bg-gray-800 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-2">
+                    <div class="flex space-x-2">
+                        <button onclick="toggleMode()" class="text-blue-400 hover:text-blue-300 text-sm">RAD</button>
+                        <span id="memory" class="text-green-400 text-sm hidden">M</span>
+                    </div>
+                    <div id="shift-indicator" class="text-yellow-400 text-sm hidden">SHIFT</div>
+                </div>
+                <div id="history" class="text-gray-400 text-sm h-16 overflow-y-auto mb-2"></div>
+                <div id="equation" class="text-gray-300 text-lg h-6 overflow-hidden mb-1"></div>
+                <div id="display" class="text-white text-3xl text-right overflow-hidden"></div>
+            </div>
         </div>
 
         <div class="">
             <div class="grid grid-cols-5 gap-2 my-3 mx-2">
-                <button class="bg-gray-400 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-gray-400 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-gray-400 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-gray-400 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-gray-400 h-8 text-white font-bold rounded-md text-xl">MS</button>
+                <button onclick="memoryStore()" class="bg-gray-400 h-8 text-white font-bold rounded-md text-xl">MS</button>
+                <button onclick="memoryRecall()" class="bg-gray-400 h-8 text-white font-bold rounded-md text-xl">MR</button>
+                <button onclick="memoryClear()" class="bg-gray-400 h-8 text-white font-bold rounded-md text-xl">MC</button>
+                <button onclick="memoryAdd()" class="bg-gray-400 h-8 text-white font-bold rounded-md text-xl">M+</button>
+                <button onclick="memorySubtract()" class="bg-gray-400 h-8 text-white font-bold rounded-md text-xl">M-</button>
             </div>
 
             <div class="grid grid-cols-5 gap-2 mb-3 mx-2">
-                <button class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">MS</button>
-                <button class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">MS</button>
+                <button onclick="handleFunction('sin')" class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">sin</button>
+                <button onclick="handleFunction('sin')" class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">cos</button>
+                <button onclick="handleFunction('sin')" class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">tan</button>
+                <button onclick="handleFunction('sin')" class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">log</button>
+                <button onclick="handleFunction('sin')" class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">In</button>
+
+                <button onclick="handleShiftFunction('asin')" class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">sin⁻¹</button>
+                <button onclick="handleShiftFunction('acos')" class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">cos⁻¹</button>
+                <button onclick="handleShiftFunction('atan')" class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">tan⁻¹</button>
+                <button onclick="handleFunction('sqrt')" class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">√</button>
+                <button onclick="handleFunction('exp')" class="bg-blue-500 h-8 text-white font-bold rounded-md text-xl">eˣ</button>
             </div>
 
             <div class="grid grid-cols-5 gap-2 mb-3 mx-2">
